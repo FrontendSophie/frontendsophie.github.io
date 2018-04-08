@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="prototype无论什么时候，只要创建了一个新函数，该函数就会创建一个prototype属性，指向这个函数的原型对象。这个原型对象里默认有一个属性：constructor，指向当前这个函数。
+function Person(name) {
+  this.name = name;
+}
+Person.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Sophie He">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="原型与new"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="E=MC²"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>原型与new - E=MC²</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="http://osly086qe.bkt.clouddn.com/favicon.ico">
+    
+     <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/rainbow.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sophie</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/FrontendSophie/frontendsophie.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>原型与new</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-02-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Interview/">#Interview</a> <a href="/tags/OOP/">#OOP</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/JavaScript/">JavaScript</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h3><p>无论什么时候，只要创建了一个新函数，该函数就会创建一个<code>prototype</code>属性，指向这个函数的原型对象。这个原型对象里默认有一个属性：<code>constructor</code>，指向当前这个函数。</p>
+<pre><code>function Person(name) {
+  this.name = name;
+}
+Person.prototype.constructor === Person; // true
+</code></pre><p>&nbsp;</p>
+<h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h3><p>每个对象都有一个属性<code>__proto__</code>，它的指向取决于对象的创建方式，一般指向自身构造函数的原型对象（除了<code>Object.create()</code>）。本质是标准属性<code>[[Prototype]]</code>，由于<code>[[Prototype]]</code>不可见，Firefox、Safari、Chrome 浏览器实现了<code>__proto__</code>来访问。<br>实例化一个构造函数之后得到的实例化对象，它的<code>__proto__</code>属性就指向这个构造函数的<code>prototype</code>。</p>
+<pre><code>var sophie = new Person(&#39;sophie&#39;);
+sophie.__proto__ === Person.prototype; // true
+</code></pre><p>这个构造函数的原型对象也是对象，所以也有一个<code>__proto__</code>属性，它的构造函数是<code>Object</code>，所以构造函数的原型对象的<code>__proto__</code>指向<code>Object.prototype</code>。</p>
+<pre><code>Person.prototype.__proto__ === Object.prototype; // true
+</code></pre><p>最后，<code>Object.prototype</code>的<code>_proto</code>属性指向<code>null</code>。</p>
+<pre><code>Object.prototype.__proto__ === null; //true
+</code></pre><p><img src="http://osly086qe.bkt.clouddn.com/ppchain_sophie.jpg" alt="avatar"></p>
+<p>需要加以区分的是，构造函数自身相当于<code>new Function</code>，它也是对象，也有一个<code>__proto__</code>属性指向自身构造函数的原型对象，即<code>Function.prototype</code>。</p>
+<pre><code>Person.__proto__ === Function.prototype; // true
+</code></pre><p>和构造函数的原型对象一样，<code>Function</code>的原型对象的<code>__proto__</code>也指向<code>Object.prototype</code>。最终指向<code>null</code>。</p>
+<pre><code>Function.prototype.__proto__ === Object.prototype; // true
+</code></pre><p><img src="http://osly086qe.bkt.clouddn.com/ppchain_person.jpg" alt="avatar"></p>
+<p>补充情况，当使用<code>Object.create()</code>的时候，新生成对象的<code>__proto__</code>会指向所传的参数，而不是<code>Object.prototype</code>。</p>
+<pre><code>var ss = Object.create(sophie);
+ss.__proto__ === sophie; // true
+</code></pre><p>关于<code>prototype</code>和<code>__proto__</code>，推荐一篇个人觉得很好的博文：<a href="https://www.cnblogs.com/shuiyi/p/5305435.html" target="_blank" rel="noopener">三张图搞懂原型</a>。<br>&nbsp;</p>
+<h3 id="new"><a href="#new" class="headerlink" title="new"></a><code>new</code></h3><pre><code>var new2 = function(func) {
+  var obj = Object.create(func.prototype);
+  var returnVal = func.call(obj);
+  if (typeof returnVal === &#39;object&#39;) {
+    return returnVal;
+  } else {
+    return obj;
+  }
+}
+</code></pre><p>如上图所示，<code>new</code>创建了一个空对象，将这个对象的<code>__proto__</code>指向构造函数的原型对象，并且调用构造函数的<code>call()</code>改变<code>this</code>的指针，相当于在对象上复制构造函数<code>this</code>绑定的属性。如果构造函数返回的不是对象类型，那么就返回这个新创建的对象。</p>
+<pre><code>function Person() {}
+Person.prototype.a = 1;
+function Student() {}
+Student.prototype = new Person();
+Student.prototype.a === 1; // true
+</code></pre><p><img src="http://osly086qe.bkt.clouddn.com/this_pp1.jpg" alt="avatar"></p>
+<pre><code>function Person() { this.a = 2 };
+Person.prototype.a = 1;
+function Student() {}
+Student.prototype = new Person();
+Student.prototype.a === 2; // true
+</code></pre><p><img src="http://osly086qe.bkt.clouddn.com/this_pp2.jpg" alt="avatar"></p>
+<pre><code>function Person() { this.a = 2 };
+Person.prototype.a = 1;
+function Student() {};
+Student.prototype = new Person();
+var s = new Student();
+s.a === 2; // true;
+</code></pre><p><img src="http://osly086qe.bkt.clouddn.com/this_pp3.jpg" alt="avatar"></p>
+<pre><code>function Person() { this.a = 2 };
+Person.prototype.a = 1;
+function Student() { this.a = 3 };
+Student.prototype = new Person();
+var s = new Student();
+s.a === 3; // true;
+</code></pre><p><img src="http://osly086qe.bkt.clouddn.com/this_pp4.jpg" alt="avatar"><br>&nbsp;<br>最后用一道题目，结束原型链。</p>
+<pre><code>function Parent(){
+  this.a = 1;
+  this.b = [2];
+}
+Parent.prototype.c = [3];
+function Child(){}
+Child.prototype = new Parent();
+
+var cc = new Child(); // cc.a = 1, cc.b = [2], cc.c = [3]
+cc.a = &#39;s&#39;;
+cc.b.push(&#39;s&#39;);
+cc.c = [&#39;s&#39;];
+
+console.log(cc); // {a: &#39;s&#39;, c: [&#39;s&#39;]}
+console.log(Child.prototype.b); // [2, &#39;s&#39;]
+cc.b === Child.prototype.b; // true
+console.log(Parent.prototype.c); // [3]
+</code></pre><p><code>cc</code>一开始是个空对象，通过原型链可以访问到<code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>。给<code>cc</code>赋值会给它自身添加属性，一般不会修改原型链，除非修改的是引用类型。这里面也有区别，<code>cc.b</code>引用<code>Child.prototype.b</code>指向同一个对象, 所以会互相影响。而<code>cc.c</code>重新赋值指向一个新对象<code>[&#39;s&#39;]</code>，所以不会影响<code>Parent.prototype.c</code>。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                            
+
+                                    
+                                        <li>
+                                            <a href="https://github.com/FrontendSophie" target="_blank">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        
+
+                                            
+                                                <li>
+                                                    <a href="https://www.linkedin.com/in/frontendsophie" target="_blank">
+                                                        <span class="fa-stack fa-lg">
+                                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                
+
+                                                    
+                                                        <li>
+                                                            <a href="mailto:aprilsophie@163.com" target="_blank">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        
+
+                                                            
+                </ul>
+                <p class="copyright text-muted">&copy;
+                    2018
+                        Sophie He
+                            <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
