@@ -21,16 +21,36 @@ body {
     height: 100%;
     margin: 0 auto;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .container section {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translateX(-50%);
     font-family: 'Ropa Sans';
     color: #444;
     text-align: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        top: 40%;
+    }
+
+
+    80% {
+        opacity: 0.6;
+        top: 30%;
+    }
+
+    100% {
+        opacity: 1;
+        top: 30%;
+    }
 }
 
 .container h1 {
@@ -41,7 +61,12 @@ body {
     letter-spacing: .3em;
 }
 
-.container .social a {
+.container .social {
+    list-style: none;
+    padding-left: 0;
+}
+
+.social li {
     display: inline-block;
     letter-spacing: .2em;
     margin: 0 1em;
@@ -84,7 +109,7 @@ body {
     letter-spacing: .2em;
 }
 
-.parent {
+.sakura {
     position: absolute;
     left: -20px;
     top: 0;
@@ -104,8 +129,8 @@ body {
     left: 0;
 
     background: #fe85c0;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     box-shadow: inset 3px 3px 5px -3px #fff;
     border-radius: 15px 5px 15px 0px;
     backface-visibility: hidden;
@@ -228,6 +253,24 @@ body {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .container .slogan {
+        line-height: 1.6em;
+    }
+
+    .container .second-half {
+        display: block;
+    }
+
+    .container .social li {
+        display: block;
+        margin: 1.6em 0;
+    }
+
+    .container .social li:first-child {
+        margin-top: 2em;
+    }
+}
 
 @media screen and (max-width: 500px) {
     .container {
@@ -236,20 +279,26 @@ body {
         margin: 10% 0;
     }
 
-    .container .social a {
-        display: block;
-        margin: 1.6em 0;
+    .container section {
+        position: absolute;
+        top: 10%;
     }
 
-    .container .social a:first-child {
-        margin-top: 2em;
-    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            top: 20%;
+        }
 
-    .container .slogan {
-        line-height: 1.6em;
-    }
 
-    .container .second-half {
-        display: block;
+        80% {
+            opacity: 0.6;
+            top: 10%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 10%;
+        }
     }
 }
