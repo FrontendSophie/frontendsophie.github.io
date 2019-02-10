@@ -253,7 +253,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     .container .slogan {
         line-height: 1.6em;
     }
@@ -282,6 +282,10 @@ body {
     .container section {
         position: absolute;
         top: 10%;
+    }
+
+    .container .social li {
+        margin: 1.2em 0;
     }
 
     @keyframes fadeIn {
