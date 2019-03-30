@@ -26,8 +26,6 @@ article {
   justify-content: center;
   align-items: center;
 
-  background-image: url(unplash-bg.jpg);
-  background-image: url(unplash-bg.webp);
   background-position: 2.5rem 0;
   background-size: cover;
 }
@@ -54,8 +52,6 @@ section.container::after {
   z-index: -1;
   margin: -2rem;
 
-  background-image: url(unplash-bg.jpg);
-  background-image: url(unplash-bg.webp);
   background-position: 2.5rem 0;
   background-attachment: fixed;
   background-size: cover;
@@ -65,6 +61,16 @@ section.container::after {
   -ms-filter: blur(20px);
   -o-filter: blur(20px);
   filter: blur(20px);
+}
+
+/* webp fallback by modernizr */
+.webp article,
+.webp section.container::after {
+  background-image: url(./img/unplash-bg.webp);
+}
+.no-webp article,
+.no-webp section.container::after {
+  background-image: url(./img/unplash-bg.jpg);
 }
 
 .container h1 {
