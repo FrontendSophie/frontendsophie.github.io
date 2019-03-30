@@ -1,64 +1,76 @@
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
 
-body,
-html {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 body {
-  font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  background-image: url(http://www13.plala.or.jp/powdercolor/bg/kabe/haru/bgsakura/sakura13.gif);
+  font-size: 14px;
 }
 
-.container {
+nav {
+  height: 3px;
+  background-color: #444;
+}
+
+article {
+  height: calc(100vh - 3px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(unplash-bg.jpg);
+  background-position: 2.5rem 0;
+  background-size: cover;
+}
+
+section.container {
   position: relative;
-  width: 60%;
-  height: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-  overflow: hidden;
-}
+  width: 50%;
 
-.container section {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
   font-family: 'Ropa Sans';
   color: #444;
   text-align: center;
-  animation: fadeIn 1.5s ease-out;
+
+  overflow: hidden;
+  z-index: 1;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    top: 40%;
-  }
+section.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -2rem;
 
-  80% {
-    opacity: 0.6;
-    top: 30%;
-  }
+  background-image: url(unplash-bg.jpg);
+  background-position: 2.5rem 0;
+  background-attachment: fixed;
+  background-size: cover;
 
-  100% {
-    opacity: 1;
-    top: 30%;
-  }
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -ms-filter: blur(20px);
+  -o-filter: blur(20px);
+  filter: blur(20px);
 }
 
 .container h1 {
-  letter-spacing: 0.36em;
+  letter-spacing: 0.36rem;
 }
 
 .container .site {
-  letter-spacing: 0.3em;
+  letter-spacing: 0.3rem;
 }
 
 .container .social {
@@ -68,15 +80,15 @@ body {
 
 .social li {
   display: inline-block;
-  letter-spacing: 0.2em;
-  margin: 0 1em;
+  letter-spacing: 0.2rem;
+  margin: 0 1rem;
   text-decoration: none;
   position: relative;
   transition: 0.8s all ease;
 }
 
 .social a:link {
-  background: linear-gradient(to right, #db93b0, #f7bb97);
+  background: linear-gradient(to right, #aaa, #f7bb97);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -89,7 +101,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, #db93b0, #f7bb97);
+  background: linear-gradient(to right, #aaa, #f7bb97);
   content: '';
   opacity: 0.3;
   border-radius: 6px;
@@ -105,163 +117,13 @@ body {
 }
 
 .container .slogan {
-  margin: 3em 0;
-  letter-spacing: 0.2em;
+  margin: 3rem 0;
+  letter-spacing: 0.2rem;
 }
 
-.sakura {
-  position: absolute;
-  left: -20px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: 100vh;
-  overflow: hidden;
-  perspective: 1000px;
-  pointer-events: none;
-}
-
-.petal {
-  margin: 1px;
-  animation: fall1 10s linear infinite;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  background: #fe85c0;
-  width: 12px;
-  height: 12px;
-  box-shadow: inset 3px 3px 5px -3px #fff;
-  border-radius: 15px 5px 15px 0px;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-
-.petal::after {
-  content: '';
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background: #db0637;
-  border-radius: 15px 5px 15px 0px;
-  transform: rotateY(180deg);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
-
-.petal:nth-child(2) {
-  animation-name: fall2;
-  animation-delay: 1.25s;
-  top: 10%;
-}
-
-.petal:nth-child(3) {
-  animation-name: fall3;
-  animation-delay: 3.65s;
-  top: 25%;
-}
-
-.petal:nth-child(4) {
-  animation-name: fall4;
-  animation-delay: 8.15s;
-  top: 30%;
-}
-
-.petal:nth-child(5) {
-  animation-name: fall5;
-  animation-delay: 5.35s;
-  top: 50%;
-}
-
-.petal:nth-child(6) {
-  animation-name: fall6;
-  animation-delay: 1.25s;
-  top: 75%;
-}
-
-.petal:nth-child(7) {
-  animation-name: fall2;
-  animation-delay: 9.25s;
-  top: 10%;
-}
-
-.petal:nth-child(8) {
-  animation-name: fall3;
-  animation-delay: 2.65s;
-  top: 25%;
-}
-
-.petal:nth-child(9) {
-  animation-name: fall4;
-  animation-delay: 0.15s;
-  top: 30%;
-}
-
-.petal:nth-child(10) {
-  animation-name: fall5;
-  animation-delay: 1.25s;
-  top: 50%;
-}
-
-.petal:nth-child(11) {
-  animation-name: fall6;
-  animation-delay: 0.25s;
-  top: 75%;
-}
-
-.petal:nth-child(12) {
-  animation-name: fall6;
-  animation-delay: 1.75s;
-  top: 85%;
-}
-
-@keyframes fall1 {
-  to {
-    transform: translateY(200px) translateX(2560px) translateZ(200px)
-      rotate3d(1, 0.25, 0, 320deg);
-  }
-}
-
-@keyframes fall2 {
-  to {
-    transform: translateY(150px) translateX(2560px) translateZ(500px)
-      rotate3d(1, 0.25, 0.25, 220deg);
-  }
-}
-
-@keyframes fall3 {
-  to {
-    transform: translateY(150px) translateX(2560px) translateZ(300px)
-      rotate3d(0.25, 1, 1, 420deg);
-  }
-}
-
-@keyframes fall4 {
-  to {
-    transform: translateY(-160px) translateX(2560px) translateZ(-500px)
-      rotate3d(1, 1, 0.25, 720deg);
-  }
-}
-
-@keyframes fall5 {
-  to {
-    transform: translateY(-200px) translateX(2560px) translateZ(400px)
-      rotate3d(0.25, 1, 0.25, 820deg);
-  }
-}
-
-@keyframes fall6 {
-  to {
-    transform: translateY(-300px) translateX(2560px) translateZ(-100px)
-      rotate3d(1, 1, 1, 720deg);
-  }
-}
-
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 85em) {
   .container .slogan {
-    line-height: 1.6em;
+    line-height: 1.6rem;
   }
 
   .container .second-half {
@@ -270,44 +132,28 @@ body {
 
   .container .social li {
     display: block;
-    margin: 1.6em 0;
+    margin: 1.6rem 0;
   }
 
   .container .social li:first-child {
-    margin-top: 2em;
+    margin-top: 2rem;
+  }
+
+  article {
+    background-position: center top;
+  }
+
+  section.container::after {
+    background-position: center top;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .container {
+@media screen and (max-width: 36em) {
+  section.container {
     width: 100%;
-    height: 80%;
-    margin: 10% 0;
-  }
-
-  .container section {
-    position: absolute;
-    top: 10%;
   }
 
   .container .social li {
-    margin: 1.2em 0;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      top: 20%;
-    }
-
-    80% {
-      opacity: 0.6;
-      top: 10%;
-    }
-
-    100% {
-      opacity: 1;
-      top: 10%;
-    }
+    margin: 1.2rem 0;
   }
 }

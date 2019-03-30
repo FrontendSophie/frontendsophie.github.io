@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sophie He</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="shortcut icon"
+      href="http://www.frontendsophie.com/favicon.ico"
+      type="images/x-icon"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Sophie He</title>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="shortcut icon" href="http://www.frontendsophie.com/favicon.ico" type="images/x-icon" />
-</head>
-
-<body>
-  <div class="container" id="content">
-    <section>
-      <h1>SOPHIE HE</h1>
-      <p class="site">www.frontendsophie.com</p>
-      <ul class="social">
-        <li>
-          <a href="https://codesandbox.io/u/FrontendSophie" target="_blank">CodeSandbox</a>
-        </li>
-        <li><a href="https://codepen.io/FrontendSophie/" target="_blank">CodePen</a></li>
-        <li>
-          <a href="https://github.com/FrontendSophie" target="_blank">Github</a>
-        </li>
-        <li>
-          <a href="https://medium.com/@frontendsophie" target="_blank">Medium</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/frontendsophie/" target="_blank">LinkedIn</a>
-        </li>
-      </ul>
-      <p class="slogan">
-        I am a frontend developer.
-        <span class="second-half">I love my career.</span>
-      </p>
-    </section>
-  </div>
-
-  <script>
-    ;
-    (function () {
-      const content = document.getElementById('content')
-      const fragment = document.createDocumentFragment()
-
-      const sakuraWrapper = document.createElement('div')
-      sakuraWrapper.classList.add('sakura')
-      const SAKURA_NUM = 12
-      for (let i = 0; i < SAKURA_NUM; i++) {
-        sakuraWrapper.innerHTML += '<div class="petal"></div>'
-      }
-
-      fragment.appendChild(sakuraWrapper)
-      content.appendChild(fragment)
-    })()
-  </script>
-</body>
-
+  <body>
+    <nav></nav>
+    <article>
+      <section class="container">
+        <h1>SOPHIE HE</h1>
+        <p class="site">www.frontendsophie.com</p>
+        <ul class="social">
+          <li>
+            <a href="https://github.com/FrontendSophie" target="_blank"
+              >Github</a
+            >
+          </li>
+          <li>
+            <a href="https://medium.com/@frontendsophie" target="_blank"
+              >Medium</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/frontendsophie/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://codepen.io/FrontendSophie/" target="_blank"
+              >CodePen</a
+            >
+          </li>
+          <li>
+            <a href="https://codesandbox.io/u/FrontendSophie" target="_blank"
+              >CodeSandbox</a
+            >
+          </li>
+        </ul>
+        <p class="slogan">
+          I am a frontend developer.
+          <span class="second-half">I love my career.</span>
+        </p>
+      </section>
+    </article>
+  </body>
 </html>
