@@ -16,7 +16,7 @@ body {
 
 nav {
   height: 3px;
-  background-color: #444;
+  background: linear-gradient(to right, #aaa, #f7bb97);
 }
 
 article {
@@ -27,6 +27,7 @@ article {
   align-items: center;
 
   background-image: url(unplash-bg.jpg);
+  background-image: url(unplash-bg.webp);
   background-position: 2.5rem 0;
   background-size: cover;
 }
@@ -54,6 +55,7 @@ section.container::after {
   margin: -2rem;
 
   background-image: url(unplash-bg.jpg);
+  background-image: url(unplash-bg.webp);
   background-position: 2.5rem 0;
   background-attachment: fixed;
   background-size: cover;
