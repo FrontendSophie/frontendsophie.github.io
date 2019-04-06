@@ -88,6 +88,7 @@ section.container::after {
 .container .social {
   list-style: none;
   padding-left: 0;
+  font-size: 16px;
 }
 
 .social li {
