@@ -14,6 +14,10 @@ body {
   font-size: 14px;
 }
 
+.hidden {
+  display: none;
+}
+
 nav {
   height: 3px;
   background: linear-gradient(to right, #aaa, #f7bb97);
@@ -125,8 +129,23 @@ section.container::after {
 }
 
 .container .slogan {
-  margin: 3rem 0;
+  margin: 2.5rem 0 0.5rem;
   letter-spacing: 0.2rem;
+}
+
+.container .about-me-link {
+  display: inline-block;
+  margin: 1rem 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#about-me {
+  text-align: left;
+  text-indent: 2em;
+}
+#about-me h1 > span {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 85em) {
@@ -163,5 +182,13 @@ section.container::after {
 
   .container .social li {
     margin: 1.2rem 0;
+  }
+
+  .container .about-me-link {
+    display: none;
+  }
+
+  .container .slogan {
+    margin: 3rem 0;
   }
 }

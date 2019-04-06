@@ -13,7 +13,7 @@
 <body>
   <nav></nav>
   <article>
-    <section class="container">
+    <section id="home" class="container">
       <h1>SOPHIE HE</h1>
       <p class="site">www.frontendsophie.com</p>
       <ul class="social">
@@ -26,21 +26,43 @@
         <li>
           <a href="https://www.linkedin.com/in/frontendsophie/" target="_blank">LinkedIn</a>
         </li>
-        <li>
-          <a href="https://codepen.io/FrontendSophie/" target="_blank">CodePen</a>
-        </li>
-        <li>
-          <a href="https://codesandbox.io/u/FrontendSophie" target="_blank">CodeSandbox</a>
-        </li>
       </ul>
       <p class="slogan">
         I am a frontend developer.
         <span class="second-half">I love my career.</span>
       </p>
+      <p onclick="showAboutMe()" class="about-me-link">我的精神家园</p>
+    </section>
+
+    <section id="about-me" class="container hidden">
+      <h1><span onclick="showHome()">&laquo; </span>我的精神家园</h1>
+      <p>我自小没有梦想，即便有，也不过是一时嫉妒旁的小伙伴，谈不上大的梦想。我渴望的，也往往是已失去的，不再回来的，譬如旧日时光，却也只能坦然接受。为梦想奋斗不是我的人生信条，因为我连梦想都没有。</p>
+      <p>
+        所以安心做一条咸鱼吗？也许那样会轻松很多，但烦恼依旧会在哪里，不过不再高级而已。富人有富贵病，穷人有穷人病，还治不起。到底还是有钱好些，所以我选择工作。虽然大家都希望有钱，但小富即安的人大有人在，所以相比之下我是勤奋的，这也就是一个没有梦想的人奋斗的原因：因为没钱和没那么知足。这原因是十分可悲的，但已经是我对于现状的尽人事了。
+      </p>
+      <p>
+        对自己诚实是一个十分重要而优秀的品质。爱装格调高雅者，一言一行不过还是纠结于旁人的看法，受制于人。而我的理想是言行无所拘，不以物喜，不以己悲，心如止水。但再一想，也许从此人生便再无波澜，也是寂寞的。虽然理想中的我是包容的，真遇事又难以自控，所以我是一个俗人，也许比一般人开悟那么一些，到底比不得圣人，他们的素质非常人可比。我真愿意相信那是与生俱来的，否则后天人为克制该多压抑啊。
+      </p>
+      <p>
+        不在沉默中爆发，就在沉默中灭亡，我是选择流亡的。懦弱的我无从爆发，也不愿身陷火海，三十六计走为上。如此看来，我又是一个有执行力的人，一个会落实勤奋行为的人。所以我比一般人优秀一些，这说法绝不过分。只是也许我一生都会囿于这个阶级，因为我忠于自己不想再压抑天性做更多自己不愿做的事。他们说这是成功必经之路，但成功真的这么重要吗？
+      </p>
+      <p>重要。成功象征着荣耀、社会地位、巨额财富，而我在此时又成了那个小富即安的人，我没有野心去追逐更多，倒让我真正得到了幸福。</p>
     </section>
   </article>
 
   <script src="modernizr-custom.js"></script>
+  <script>
+    const home = document.getElementById('home')
+    const aboutMe = document.getElementById('about-me')
+    const showAboutMe = () => {
+      home.classList.add('hidden')
+      aboutMe.classList.remove('hidden')
+    }
+    const showHome = () => {
+      aboutMe.classList.add('hidden')
+      home.classList.remove('hidden')
+    }
+  </script>
 </body>
 
 </html>
