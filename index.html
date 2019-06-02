@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="This is Sophie's space">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Sophie He</title>
   <link rel="stylesheet" href="index.css" />
-  <link rel="shortcut icon" href="http://www.frontendsophie.com/img/favicon.ico" type="images/x-icon" />
+  <link rel="shortcut icon" href="./img/favicon.ico" type="images/x-icon" />
+  <link rel="manifest" href="./manifest.webmanifest">
 </head>
 
 <body>
@@ -18,24 +20,24 @@
       <p class="site">www.frontendsophie.com</p>
       <ul class="social">
         <li>
-          <a href="https://github.com/FrontendSophie" target="_blank">Github</a>
+          <a href="https://github.com/FrontendSophie" target="_blank" rel="noreferrer">Github</a>
         </li>
         <li>
-          <a href="https://medium.com/@frontendsophie" target="_blank">Medium</a>
+          <a href="https://medium.com/@frontendsophie" target="_blank" rel="noreferrer">Medium</a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/frontendsophie/" target="_blank">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/frontendsophie/" target="_blank" rel="noreferrer">LinkedIn</a>
         </li>
       </ul>
       <p class="slogan">
         I am a frontend developer.
         <span class="second-half">I love my career.</span>
       </p>
-      <p onclick="showAboutMe()" class="about-me-link">我的精神家园</p>
+      <p class="about-me-link">我的精神家园</p>
     </section>
 
     <section id="about-me" class="container hidden">
-      <h1><span onclick="showHome()">&laquo; </span>我的精神家园</h1>
+      <h1><span class="home-link">&laquo; </span>我的精神家园</h1>
       <p>我自小没有梦想，即便有，也不过是一时嫉妒旁的小伙伴，谈不上大的梦想。我渴望的，也往往是已失去的，不再回来的，譬如旧日时光，却也只能坦然接受。为梦想奋斗不是我的人生信条，因为我连梦想都没有。</p>
       <p>
         所以安心做一条咸鱼吗？也许那样会轻松很多，但烦恼依旧会在哪里，不过不再高级而已。富人有富贵病，穷人有穷人病，还治不起。到底还是有钱好些，所以我选择工作。虽然大家都希望有钱，但小富即安的人大有人在，所以相比之下我是勤奋的，这也就是一个没有梦想的人奋斗的原因：因为没钱和没那么知足。这原因是十分可悲的，但已经是我对于现状的尽人事了。
@@ -51,18 +53,7 @@
   </article>
 
   <script src="modernizr-custom.js"></script>
-  <script>
-    const home = document.getElementById('home')
-    const aboutMe = document.getElementById('about-me')
-    const showAboutMe = () => {
-      home.classList.add('hidden')
-      aboutMe.classList.remove('hidden')
-    }
-    const showHome = () => {
-      aboutMe.classList.add('hidden')
-      home.classList.remove('hidden')
-    }
-  </script>
+  <script src="index.js"></script>
 </body>
 
 </html>

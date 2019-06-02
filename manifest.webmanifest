@@ -1,0 +1,13 @@
+{
+    "name": "Sophie He",
+    "short_name": "Sophie",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "This is Sophie's space",
+    "icons": [{
+        "src": "./img/logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }]
+}
