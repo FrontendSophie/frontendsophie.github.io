@@ -9,5 +9,6 @@
         "src": "./img/logo.png",
         "sizes": "512x512",
         "type": "image/png"
-    }]
+    }],
+    "theme_color": "#fff"
 }
